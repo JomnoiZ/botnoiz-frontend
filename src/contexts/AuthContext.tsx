@@ -34,6 +34,7 @@ export default function AuthProvider({
     const loginHandler = async (studentId: string) => {
         if (liff?.isInClient()) {
             const lineUserData = await liff?.getProfile();
+            console.log(lineUserData)
 
             const userData = await axios
                 .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {

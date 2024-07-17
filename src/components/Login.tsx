@@ -1,3 +1,4 @@
+import { useLiff } from '@/contexts/LiffContext';
 import LG23APBotImage from '@/public/lg23-ap-bot.jpg';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -16,6 +17,15 @@ export default function Login({
 
     const [showWarning, setShowWarning] = useState<boolean>(false);
 
+    const liff = useLiff();
+    const getUserID = async() => {
+        if (liff?.isInClient()) {
+            const lineUserData = await liff?.getProfile();
+            return lineUserData?.userId;
+        }
+        return "เชื่อมต่อกับ Liff ไม่ได้ อดดูไปนะ"
+    }
+
     return (
         <div className="flex flex-col items-center justify-center h-screen w-full text-center space-y-8 pb-6 bg-white">
             <div className="relative h-28 rounded-full bg-white overflow-hidden border-8 border-white shadow-lg aspect-square">
@@ -25,6 +35,7 @@ export default function Login({
                 <h1 className="font-bold text-3xl text-neutral-800">
                     ใครน่ะ?!
                 </h1>
+                { getUserID() }
                 <p className="text-sm text-neutral-500">
                     กรอกรหัสนิสิตเพื่อยืนยันตัวหน่อย
                 </p>

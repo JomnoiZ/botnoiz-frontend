@@ -25,7 +25,7 @@ export default function LiffProvider({
                 console.log('LIFF init...');
                 liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID! })
                     .then(() => {
-                        console.log('LIFF init succeeded.', liff);
+                        console.log('LIFF init succeeded.');
                         setLiffObject(liff);
                     })
                     .catch((error: Error) => {

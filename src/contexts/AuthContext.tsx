@@ -32,10 +32,11 @@ export default function AuthProvider({
             'ngrok-skip-browser-warning': '1',
         },
     };
+
     const loginHandler = async (studentId: string) => {
         if (liff?.isInClient()) {
             const lineUserData = await liff?.getProfile();
-            setUserID(lineUserData?.userId || 'ทำไมไม่โชว์ userid');
+            alert(lineUserData?.userId);
 
             const userData = await axios
                 .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {

@@ -50,7 +50,7 @@ export default function AuthProvider({
             setUser(userData);
             return;
         }
-        alert(liff?.isInClient());
+        alert(liff + " " + liff?.isInClient());
         console.log(process.env.NEXT_PUBLIC_API_URL + '/user/' + studentId);
 
         const userData = await axios

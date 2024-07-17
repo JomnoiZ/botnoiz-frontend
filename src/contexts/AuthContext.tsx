@@ -26,7 +26,6 @@ export default function AuthProvider({
     const liff = useLiff();
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [user, setUser] = useState<IUser | null>(null);
-    const [userID, setUserID] = useState<string>('บอทโง่');
     const config = {
         headers: {
             'ngrok-skip-browser-warning': '1',
@@ -51,6 +50,7 @@ export default function AuthProvider({
             setUser(userData);
             return;
         }
+        alert(liff?.isInClient());
         console.log(process.env.NEXT_PUBLIC_API_URL + '/user/' + studentId);
 
         const userData = await axios
@@ -104,7 +104,7 @@ export default function AuthProvider({
     }
 
     if (!user) {
-        return <Login loginHandler={loginHandler} userID={userID} />;
+        return <Login loginHandler={loginHandler} />;
     }
 
     return (

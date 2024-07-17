@@ -5,10 +5,9 @@ import { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
 export default function Login({
-    loginHandler, userID
+    loginHandler
 }: {
     loginHandler: (studentId: string) => void;
-    userID: string;
 }): JSX.Element {
     const [studentId, setStudentId] = useState<string>('');
 
@@ -27,7 +26,6 @@ export default function Login({
                 <h1 className="font-bold text-3xl text-neutral-800">
                     ใครน่ะ?!
                 </h1>
-                { userID }
                 <p className="text-sm text-neutral-500">
                     กรอกรหัสนิสิตเพื่อยืนยันตัวหน่อย
                 </p>

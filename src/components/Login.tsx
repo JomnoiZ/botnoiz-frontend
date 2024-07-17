@@ -5,9 +5,10 @@ import { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 
 export default function Login({
-    loginHandler,
+    loginHandler, userID
 }: {
     loginHandler: (studentId: string) => void;
+    userID: string;
 }): JSX.Element {
     const [studentId, setStudentId] = useState<string>('');
 
@@ -16,15 +17,6 @@ export default function Login({
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const [showWarning, setShowWarning] = useState<boolean>(false);
-
-    const liff = useLiff();
-    const getUserID = async() => {
-        if (liff?.isInClient()) {
-            const lineUserData = await liff?.getProfile();
-            return lineUserData?.userId;
-        }
-        return "เชื่อมต่อกับ Liff ไม่ได้ อดดูไปนะ"
-    }
 
     return (
         <div className="flex flex-col items-center justify-center h-screen w-full text-center space-y-8 pb-6 bg-white">
@@ -35,7 +27,7 @@ export default function Login({
                 <h1 className="font-bold text-3xl text-neutral-800">
                     ใครน่ะ?!
                 </h1>
-                { getUserID() }
+                { userID }
                 <p className="text-sm text-neutral-500">
                     กรอกรหัสนิสิตเพื่อยืนยันตัวหน่อย
                 </p>

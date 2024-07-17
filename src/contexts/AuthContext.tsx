@@ -26,6 +26,7 @@ export default function AuthProvider({
     const liff = useLiff();
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [user, setUser] = useState<IUser | null>(null);
+    const [userID, setUserID] = useState<string>('บอทโง่');
     const config = {
         headers: {
             'ngrok-skip-browser-warning': '1',
@@ -34,7 +35,7 @@ export default function AuthProvider({
     const loginHandler = async (studentId: string) => {
         if (liff?.isInClient()) {
             const lineUserData = await liff?.getProfile();
-            console.log(lineUserData)
+            setUserID(lineUserData?.userId || 'ทำไมไม่โชว์ userid');
 
             const userData = await axios
                 .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
@@ -102,7 +103,7 @@ export default function AuthProvider({
     }
 
     if (!user) {
-        return <Login loginHandler={loginHandler} />;
+        return <Login loginHandler={loginHandler} userID={userID} />;
     }
 
     return (

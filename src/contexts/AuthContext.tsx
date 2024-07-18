@@ -35,7 +35,6 @@ export default function AuthProvider({
     const loginHandler = async (studentId: string) => {
         if (liff?.isInClient()) {
             const lineUserData = await liff?.getProfile();
-            alert(lineUserData?.userId);
 
             const userData = await axios
                 .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
@@ -46,6 +45,7 @@ export default function AuthProvider({
                 .then((res) => res.data.data)
                 .catch(() => console.log('create user failed'));
 
+            alert(userData);
             localStorage.setItem('studentId', studentId);
             setUser(userData);
             return;

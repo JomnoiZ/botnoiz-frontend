@@ -9,7 +9,7 @@ const ibmPlexSansThai = IBM_Plex_Sans_Thai({
 });
 
 export const metadata = {
-    title: 'เลขาฝ่ายแผน',
+    title: 'BotnoiZ',
     description: 'ลานเกียร์ต้องรอด',
 };
 

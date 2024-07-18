@@ -42,12 +42,12 @@ export default function AuthProvider({
                     displayName: lineUserData?.displayName,
                     userId: lineUserData?.userId,
                 })
-                .then((res) => res.data.data)
+                .then((res) => res)
                 .catch(() => console.log('create user failed'));
 
             alert(process.env.NEXT_PUBLIC_API_URL + '/user ' + userData);
             localStorage.setItem('studentId', studentId);
-            setUser(userData);
+            // setUser(userData);
             return;
         }
         alert(liff + " " + liff?.isInClient());

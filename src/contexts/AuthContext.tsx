@@ -43,7 +43,7 @@ export default function AuthProvider({
                     userId: lineUserData?.userId,
                 })
                 .then((res) => res.data)
-                .catch(() => console.log('create user failed'));
+                .catch(() => alert('create user failed: '));
 
             alert(process.env.NEXT_PUBLIC_API_URL + '/user ' + userData);
             localStorage.setItem('studentId', studentId);

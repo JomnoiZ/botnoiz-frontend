@@ -36,16 +36,19 @@ export default function AuthProvider({
         if (liff?.isInClient()) {
             const lineUserData = await liff?.getProfile();
 
-            const userData = await axios
-                .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
-                    studentId,
-                    displayName: lineUserData?.displayName,
-                    userId: lineUserData?.userId,
-                })
-                .then((res) => res.data)
-                .catch(() => alert('create user failed: '));
-
-            alert(process.env.NEXT_PUBLIC_API_URL + '/user ' + userData);
+            try {
+                const userData = await axios
+                    .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
+                        studentId,
+                        displayName: lineUserData?.displayName,
+                        userId: lineUserData?.userId,
+                    })
+                    // .then((res) => res.data)
+                    // .catch(() => alert('create user failed: '));
+            } catch (e) {
+                alert(e);
+            }
+            // alert(process.env.NEXT_PUBLIC_API_URL + '/user ' + userData);
             localStorage.setItem('studentId', studentId);
             // setUser(userData);
             return;

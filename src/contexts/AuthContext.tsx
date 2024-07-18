@@ -37,12 +37,13 @@ export default function AuthProvider({
             const lineUserData = await liff?.getProfile();
 
             try {
-                const userData = await axios
-                    .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
-                        studentId,
-                        displayName: lineUserData?.displayName,
-                        userId: lineUserData?.userId,
-                    })
+                const test = await axios.get(process.env.NEXT_PUBLIC_API_URL + '');
+                // const userData = await axios
+                //     .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
+                //         studentId,
+                //         displayName: lineUserData?.displayName,
+                //         userId: lineUserData?.userId,
+                //     })
                     // .then((res) => res.data)
                     // .catch(() => alert('create user failed: '));
             } catch (e) {

@@ -36,25 +36,18 @@ export default function AuthProvider({
         if (liff?.isInClient()) {
             const lineUserData = await liff?.getProfile();
 
-            try {
-                const test = await axios.get('https://api.restful-api.dev/objects/7');
-                // const userData = await axios
-                //     .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
-                //         studentId,
-                //         displayName: lineUserData?.displayName,
-                //         userId: lineUserData?.userId,
-                //     })
-                    // .then((res) => res.data)
-                    // .catch(() => alert('create user failed: '));
-            } catch (e) {
-                alert(e);
-            }
-            // alert(process.env.NEXT_PUBLIC_API_URL + '/user ' + userData);
+            const userData = await axios
+                .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
+                    studentId,
+                    displayName: lineUserData?.displayName,
+                    userId: lineUserData?.userId,
+                })
+                .then((res) => res.data)
+                .catch(() => alert('create user failed'));
             localStorage.setItem('studentId', studentId);
-            // setUser(userData);
+            setUser(userData);
             return;
         }
-        alert(liff + " " + liff?.isInClient());
         console.log(process.env.NEXT_PUBLIC_API_URL + '/user/' + studentId);
 
         const userData = await axios

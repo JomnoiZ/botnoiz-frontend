@@ -37,7 +37,7 @@ export default function AuthProvider({
             const lineUserData = await liff?.getProfile();
 
             try {
-                const test = await axios.get(process.env.NEXT_PUBLIC_API_URL + '');
+                const test = await axios.get('https://api.restful-api.dev/objects/7');
                 // const userData = await axios
                 //     .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
                 //         studentId,

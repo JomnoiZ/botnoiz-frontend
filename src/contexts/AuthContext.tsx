@@ -43,7 +43,7 @@ export default function AuthProvider({
                     userId: lineUserData?.userId,
                 })
                 .then((res) => res.data)
-                .catch(() => alert('create user failed'));
+                .catch((err) => alert(err));
             localStorage.setItem('studentId', studentId);
             setUser(userData);
             return;

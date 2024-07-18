@@ -42,7 +42,7 @@ export default function AuthProvider({
                     displayName: lineUserData?.displayName,
                     userId: lineUserData?.userId,
                 })
-                .then((res) => res)
+                .then((res) => res.data)
                 .catch(() => console.log('create user failed'));
 
             alert(process.env.NEXT_PUBLIC_API_URL + '/user ' + userData);

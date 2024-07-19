@@ -36,13 +36,15 @@ export default function AuthProvider({
         if (liff?.isInClient()) {
             const lineUserData = await liff?.getProfile();
 
+            const test = (await axios.get('https://api.restful-api.dev/objects/7')).data
+            alert(test)
             const userData = await axios
                 .post(process.env.NEXT_PUBLIC_API_URL + '/user/', {
                     studentId,
                     displayName: lineUserData?.displayName,
                     userId: lineUserData?.userId,
                 })
-                .then((res) => res.data)
+                .then((res) => res.data.data)    
                 .catch((err) => alert(err));
             localStorage.setItem('studentId', studentId);
             setUser(userData);

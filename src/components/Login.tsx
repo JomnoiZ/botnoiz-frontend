@@ -1,5 +1,4 @@
-import { useLiff } from '@/contexts/LiffContext';
-import LG23APBotImage from '@/public/lg23-ap-bot.jpg';
+import BotImage from '@/public/lg23-ap-bot.jpg';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';
@@ -20,7 +19,7 @@ export default function Login({
     return (
         <div className="flex flex-col items-center justify-center h-screen w-full text-center space-y-8 pb-6 bg-white">
             <div className="relative h-28 rounded-full bg-white overflow-hidden border-8 border-white shadow-lg aspect-square">
-                <Image src={LG23APBotImage} alt="" fill />
+                <Image src={BotImage} alt="" fill />
             </div>
             <div className="space-y-1">
                 <h1 className="font-bold text-3xl text-neutral-800">

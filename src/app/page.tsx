@@ -4,10 +4,8 @@ import Edit from '@/components/Edit';
 import Logout from '@/components/Logout';
 import PowerButton from '@/components/PowerButton';
 import { useAuth } from '@/contexts/AuthContext';
-import { useLiff } from '@/contexts/LiffContext';
 
 export default function Home() {
-    const liff = useLiff();
     const { user } = useAuth();
 
     return (
@@ -15,7 +13,7 @@ export default function Home() {
             <PowerButton />
             {user?.superuser && <Edit user={user} />}
             <APSelection />
-            {/* <Logout /> */}
+            <Logout />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import { useAuth } from '@/contexts/AuthContext';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function PowerButton(): JSX.Element {
     const { user, fetchUser } = useAuth();

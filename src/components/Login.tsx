@@ -1,4 +1,4 @@
-import BotImage from '@/public/lg23-ap-bot.jpg';
+import BotImage from '@/public/jomnoiz.jpg';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FiArrowRight } from 'react-icons/fi';

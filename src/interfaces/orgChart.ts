@@ -1,6 +1,10 @@
 const larngearCampDepartment = {
     รายชื่อแต่ละฝ่าย : [
         {
+            name: 'บอร์ด',
+            shortName: 'BOARD',
+        },
+        {
             name: 'ฝ่ายประสาน',
             shortName: 'COOP',
         },

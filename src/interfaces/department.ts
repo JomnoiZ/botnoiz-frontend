@@ -1,4 +1,5 @@
 type LarngearCampDepartment =
+    | 'BOARD'
     | 'COOP'
     | 'PLAN'
     | 'ACT'

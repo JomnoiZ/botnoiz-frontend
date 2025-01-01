@@ -21,12 +21,7 @@ const Slot: React.FC<SlotProps> = ({
 }) => {
     const { user } = useAuth();
 
-    // const userColors: { [key: string]: string } = user?.selectedColors ?? {};
-    const userColors: { [key: string]: string } = {
-        'COOP': 'yellow',
-        'PLACE': 'red',
-        'PLAN': 'blue',
-    };
+    const userColors: { [key: string]: string } = user?.selectedColors ?? {};
 
     const start = moment(slot.start).format('HH:mm');
     const end = moment(slot.end).format('HH:mm');

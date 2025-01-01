@@ -1,4 +1,4 @@
-import { TDepartment } from './department';
+import { TDepartment, TDepartmentColors } from './department';
 
 export interface IUser {
     _id: string;
@@ -8,4 +8,5 @@ export interface IUser {
     enableBot: boolean;
     selectedDepartments: TDepartment[];
     superuser: boolean;
+    selectedColors: Record<TDepartment, TDepartmentColors>;
 }

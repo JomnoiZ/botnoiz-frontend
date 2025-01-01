@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { PiPencilSimpleFill } from 'react-icons/pi';
 import { FaSquarePhone } from 'react-icons/fa6';
 import Link from 'next/link';
+import { DepartmentColors } from '@/interfaces/department';
 
 interface SlotProps {
     slot: ISlot;
@@ -79,7 +80,11 @@ const Slot: React.FC<SlotProps> = ({
             </h3>
             <div className="flex flex-row space-x-4 justify-between items-center">
                 <div className="space-y-2">
-                    <h3 className={`font-bold text-custom-${userColors[slot.department]} text-lg`}>
+                    <h3 className={`font-bold text-lg`}
+                        style={{
+                            color: DepartmentColors[userColors[slot.department] as keyof typeof DepartmentColors]
+                        }}
+                    >
                         {slot.department} | {slot.event}                
                     </h3>
                     <p className="text-sm text-neutral-500 font-bold">
@@ -97,7 +102,10 @@ const Slot: React.FC<SlotProps> = ({
                     <a href={`tel:${contactMatches ? contactMatches[2] : ''}`}>
                         <FaSquarePhone
                             size={48}
-                            className={`rounded-lg text-custom-${userColors[slot.department]}`}
+                            className={'rounded-lg'}
+                            style={{
+                                color: DepartmentColors[userColors[slot.department] as keyof typeof DepartmentColors]
+                            }}
                         />
                     </a>
                 </span>

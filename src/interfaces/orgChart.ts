@@ -53,11 +53,11 @@ const larngearCampDepartment = {
             shortName: 'VCK',
         },
         {
-            name: 'ฝ่ายรักษาความปลอดภัย',
+            name: 'ฝ่าย Security',
             shortName: 'SECURITY',
         },
         {
-            name: 'ฝ่ายสปอนเซอร์',
+            name: 'ฝ่ายจัดหาทุน',
             shortName: 'SPONSOR',
         },
     ],

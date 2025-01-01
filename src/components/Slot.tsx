@@ -21,6 +21,13 @@ const Slot: React.FC<SlotProps> = ({
 }) => {
     const { user } = useAuth();
 
+    // const userColors: { [key: string]: string } = user?.selectedColors ?? {};
+    const userColors: { [key: string]: string } = {
+        'COOP': 'yellow',
+        'PLACE': 'red',
+        'PLAN': 'blue',
+    };
+
     const start = moment(slot.start).format('HH:mm');
     const end = moment(slot.end).format('HH:mm');
 
@@ -50,17 +57,17 @@ const Slot: React.FC<SlotProps> = ({
                 isActive ? '' : isAnnounced ? 'opacity-[35%]' : ''
             } ${
                 isActive && page === 'all'
-                    ? 'border-[3.5px] border-primary-500'
+                    ? 'border-[3.5px] border-neutral-500'
                     : ''
             }`}
         >
             <h3
                 className={`font-semibold space-x-4 w-full justify-between flex items-center ${
                     isActive
-                        ? 'text-primary-500'
+                        ? 'text-neutral-700'
                         : isAnnounced
                         ? 'text-neutral-500'
-                        : 'text-primary-500'
+                        : 'text-neutral-700'
                 }`}
             >
                 <span>{`#${slot.slot} | ${
@@ -69,7 +76,7 @@ const Slot: React.FC<SlotProps> = ({
                 {user?.superuser && (
                     <span
                         onClick={() => setSelectedEditSlot(slot.slot)}
-                        className="text-lg rounded-lg text-neutral-300 cursor-pointer"
+                        className="text-lg rounded-lg text-neutral-400 cursor-pointer"
                     >
                         <PiPencilSimpleFill />
                     </span>
@@ -77,11 +84,11 @@ const Slot: React.FC<SlotProps> = ({
             </h3>
             <div className="flex flex-row space-x-4 justify-between items-center">
                 <div className="space-y-2">
-                    <h3 className="font-bold text-neutral-700 text-lg">
-                        {slot.event}
+                    <h3 className={`font-bold text-custom-${userColors[slot.department]} text-lg`}>
+                        <span>{slot.department} | {slot.event}</span>                      
                     </h3>
                     <p className="text-sm text-neutral-500 font-bold">
-                        {slot.department} |{' '}
+                        {/* {slot.department} |{' '} */}
                         <a
                             href={`tel:${
                                 contactMatches ? contactMatches[2] : ''
@@ -95,13 +102,7 @@ const Slot: React.FC<SlotProps> = ({
                     <a href={`tel:${contactMatches ? contactMatches[2] : ''}`}>
                         <FaSquarePhone
                             size={48}
-                            className={`rounded-lg ${
-                                isActive
-                                    ? 'text-primary-500'
-                                    : isAnnounced
-                                    ? 'text-neutral-500'
-                                    : 'text-primary-500'
-                            }`}
+                            className={`rounded-lg text-custom-${userColors[slot.department]}`}
                         />
                     </a>
                 </span>

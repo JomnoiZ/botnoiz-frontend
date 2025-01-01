@@ -85,7 +85,7 @@ const Slot: React.FC<SlotProps> = ({
             <div className="flex flex-row space-x-4 justify-between items-center">
                 <div className="space-y-2">
                     <h3 className={`font-bold text-custom-${userColors[slot.department]} text-lg`}>
-                        <span>{slot.department} | {slot.event}</span>                      
+                        {slot.department} | {slot.event}                
                     </h3>
                     <p className="text-sm text-neutral-500 font-bold">
                         {/* {slot.department} |{' '} */}
@@ -94,7 +94,7 @@ const Slot: React.FC<SlotProps> = ({
                                 contactMatches ? contactMatches[2] : ''
                             }`}
                         >
-                            {slot.contact}
+                            ผต. : {slot.contact}
                         </a>
                     </p>
                 </div>

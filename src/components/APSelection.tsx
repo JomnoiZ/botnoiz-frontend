@@ -190,7 +190,8 @@ export default function APSelection(): JSX.Element {
                     )}
                 </div>
             ))}
-            {JSON.stringify(selectedAP) !== JSON.stringify(selectedData) && (
+            {JSON.stringify(selectedAP) !== JSON.stringify(selectedData) && 
+             JSON.stringify(selectedColors) !== JSON.stringify(userColors) &&(
                 <div className="flex flex-col items-center justify-center space-y-3 pt-6 pb-4">
                     <p className="text-xs text-neutral-500">อย่าลืมกดบันทึก</p>
                     <button

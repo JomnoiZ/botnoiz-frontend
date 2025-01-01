@@ -3,7 +3,7 @@
 import { ISlot } from '@/interfaces/ap';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { PiFunnelFill, PiInfoFill } from 'react-icons/pi';
+import { PiFunnelFill, PiInfoFill, PiGearFill } from 'react-icons/pi';
 import moment from 'moment';
 import { useAuth } from '@/contexts/AuthContext';
 import Edit from '@/components/Edit';
@@ -36,8 +36,49 @@ export default function Upcoming() {
             });
     };
 
+    // Example slots for testing purposes
+    // const exampleSlots: ISlot[] = [
+    //     {
+    //         "slot": 1,
+    //         "start": "2024-12-29T15:30:00Z",
+    //         "end": "2024-12-29T15:30:00Z",
+    //         "duration": "-",
+    //         "department": "COOP",
+    //         "event": "นัดประสาน",
+    //         "location": "ที่ราบสูง",
+    //         "contact": "ไจไหม (086-356-1202)",
+    //         "note": "",
+    //         "announced": false,
+    //     },
+    //     {
+    //         "slot": 2,
+    //         "start": "2024-12-29T15:30:00Z",
+    //         "end": "2024-12-29T16:00:00Z",
+    //         "duration": "30",
+    //         "department": "PLACE",
+    //         "event": "นัดบรีฟ",
+    //         "location": "ลานเกียร์",
+    //         "contact": "โชกุน (063-213-6926)",
+    //         "note": "",
+    //         "announced": true,
+    //     },
+    //     {
+    //         "slot": 3,
+    //         "start": "2024-12-29T15:30:00Z",
+    //         "end": "2024-12-29T16:00:00Z",
+    //         "duration": "30",
+    //         "department": "PLAN",
+    //         "event": "พาน้องไปอาบน้ำ",
+    //         "location": "ลานเกียร์",
+    //         "contact": "แป้ง (065-704-6825)",
+    //         "note": "",
+    //         "announced": true,
+    //     },
+    // ];
+
     useEffect(() => {
         fetchSlots();
+        // setSlots(exampleSlots);
         setPage((localStorage.getItem('page') as 'active' | 'all') || 'active');
         setShowDetails(
             (localStorage.getItem('showDetails') as 'true' | 'false') === 'true'
@@ -219,6 +260,12 @@ export default function Upcoming() {
                         }`}
                     >
                         <PiFunnelFill />
+                    </button>
+                    <button
+                        onClick={() => window.location.href = '/'}
+                        className="h-full aspect-square grid place-content-center text-2xl rounded-lg text-gray-400"
+                    >
+                        <PiGearFill />
                     </button>
                 </div>
             </div>

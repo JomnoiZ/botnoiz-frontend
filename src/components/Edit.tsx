@@ -99,17 +99,17 @@ const Edit: React.FC<EditProps> = ({ slot: inputSlot, onFinished, user }) => {
                                 ตั้งแต่ Slot ที่
                             </span>
                             <select
-                                value={slot || activeSlot?.slot}
+                                value={slot || activeSlot?.slot || 1}
                                 onChange={(e) => setSlot(+e.target.value)}
                                 className="bg-transparent border-2 border-neutral-300 rounded-lg px-4 py-1 text-neutral-700 font-bold"
                             >
-                                <option value={activeSlot?.slot}>
-                                    {activeSlot?.slot}
+                                <option value={activeSlot?.slot || 1}>
+                                    {activeSlot?.slot || 1}
                                 </option>
                                 {activeSlot?.slot &&
                                     createArrayFromRange(
                                         activeSlot.slot,
-                                        200
+                                        300
                                     ).map((slot) => (
                                         <option key={slot} value={slot}>
                                             {slot}
@@ -122,60 +122,26 @@ const Edit: React.FC<EditProps> = ({ slot: inputSlot, onFinished, user }) => {
                 <div className="flex flex-col space-y-6 items-center">
                     <div className="flex items-center space-x-2">
                         <div
-                            onClick={() => setOffset((prev) => prev + 10)}
-                            className="text-xs text-secondary-600 rounded-full shadow-md p-3 bg-white"
+                            onClick={() => setOffset((prev) => prev + 5)}
+                            className="text-xs text-neutral-700 rounded-full shadow-md p-3 bg-white"
                         >
                             <FiPlus />
                         </div>
-                        <div
-                            onClick={() => setOffset((prev) => prev + 1)}
-                            // onPointerDown={() => {
-                            //     const timeout = setTimeout(() => {
-                            //         const interval = setInterval(() => {
-                            //             setOffset((prev) => prev + 1);
-                            //         }, 100);
-                            //         document.addEventListener(
-                            //             'pointerup',
-                            //             () => clearInterval(interval),
-                            //             { once: true }
-                            //         );
-                            //     }, 300);
-                            //     document.addEventListener(
-                            //         'pointerup',
-                            //         () => clearTimeout(timeout),
-                            //         { once: true }
-                            //     );
-                            // }}
+                        {/* <div
+                            onClick={() => setOffset((prev) => prev + 1)}                            
                             className="text-xs text-neutral-400 rounded-full shadow-md p-3 bg-white"
                         >
                             <FiPlus />
                         </div>
                         <div
                             onClick={() => setOffset((prev) => prev - 1)}
-                            // onPointerDown={() => {
-                            //     const timeout = setTimeout(() => {
-                            //         const interval = setInterval(() => {
-                            //             setOffset((prev) => prev - 1);
-                            //         }, 100);
-                            //         document.addEventListener(
-                            //             'pointerup',
-                            //             () => clearInterval(interval),
-                            //             { once: true }
-                            //         );
-                            //     }, 300);
-                            //     document.addEventListener(
-                            //         'pointerup',
-                            //         () => clearTimeout(timeout),
-                            //         { once: true }
-                            //     );
-                            // }}
                             className="text-xs text-neutral-400 rounded-full shadow-md p-3 bg-white"
                         >
                             <FiMinus />
-                        </div>
+                        </div> */}
                         <div
-                            onClick={() => setOffset((prev) => prev - 10)}
-                            className="text-xs text-secondary-600 rounded-full shadow-md p-3 bg-white"
+                            onClick={() => setOffset((prev) => prev - 5)}
+                            className="text-xs text-neutral-700 rounded-full shadow-md p-3 bg-white"
                         >
                             <FiMinus />
                         </div>
